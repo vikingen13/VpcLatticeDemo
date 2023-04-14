@@ -1,5 +1,5 @@
 
-# Amazon VPC Lattice demonstration!
+# Amazon VPC Lattice demonstration
 
 This project is a basic infrastructure to be used as a starting point for a VPC Lattice démonstration.
 
@@ -124,3 +124,5 @@ In the VPC section of the AWS console, select **VPC Lattice/Service networks**.
 Select the service network previously created and create a new VPC association for **theVPCB** with **SGB** as the security group.
 
 Once this association is created, you should be able to access the service from Instance B in VPC B (note that it may take some minutes to become active).
+
+![ArchitectureFinale](https://raw.githubusercontent.com/vikingen13/VpcLatticeDemo/main/archifinale.png)
