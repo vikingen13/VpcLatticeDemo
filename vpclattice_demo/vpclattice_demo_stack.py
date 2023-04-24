@@ -3,6 +3,7 @@ from aws_cdk import (
     Stack,
     aws_ec2 as ec2,
     aws_lambda as _lambda,
+    aws_logs as logs
     # aws_sqs as sqs,
 )
 from constructs import Construct
@@ -90,4 +91,8 @@ class VpclatticeDemoStack(Stack):
                 description="SGB for VPCLattice association"
                 )
         mySGB.add_ingress_rule(ec2.Peer.ipv4(myVpcB.vpc_cidr_block),ec2.Port.tcp(443),"Allow from machines in the same VPC to port 443")
+
+        #create cloudwatch logroup for developpeur and admin with 5 days retention
+        myDevLogGroup = logs.LogGroup(self, "VPCLatticeDevLogGroup",retention=logs.RetentionDays.FIVE_DAYS)
+        myAdminLogGroup = logs.LogGroup(self, "VPCLatticeAdminLogGroup",retention=logs.RetentionDays.FIVE_DAYS)
 
